@@ -10,12 +10,16 @@ import { HomeComponent } from './views/home/home.component';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './shared/contact/contact.component';
+import { FooterComponent } from './shared/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@
             <div class="row g-4">
                 <div class="col-sm-6 col-lg-4 pt-0 sub-banner">
                     <div class="content">
-                        <img src="../../../assets/img/rosewood.png" alt="vase1" class="content-img"/>
+                        <img src="../../../assets/img/rosewood.png" alt="vase1" class="content-img" />
                         <div class="sub-banner-overlay">
                             <div class="sub-banner-info">Rosewood</div>
                         </div>
@@ -117,12 +117,25 @@
             Flowers prides itself on delivering beautiful and unique flowers for your special events, weddings, and home
             and office occasions.
         </p>
-        <div class="action mt-5">
-            <input class="form-control" type="email" />
-            <button class="btn-subscribe mt-4">Subcribe</button>
-        </div>
+        <form [formGroup]="subscribeForm" class="action mt-5" (ngSubmit)="handleSubscribe(subscribeForm.value)">
+            <input 
+                class="form-control subcribe-email"
+                [ngClass]="{'error': !hideError && subscribeForm.controls['email'].invalid && (subscribeForm.controls['email'].dirty || subscribeForm.controls['email'].touched)}"
+                type="email" 
+                formControlName="email"
+                required 
+                (blur)="handleChannge()"/>
+            <div *ngIf="!hideError && subscribeForm.controls['email'].invalid && (subscribeForm.controls['email'].dirty || subscribeForm.controls['email'].touched)"
+                class="err-msg">
+                <div *ngIf="subscribeForm.controls['email'].errors.required">
+                    This field is required.
+                </div>
+                <div *ngIf="subscribeForm.controls?.['email'].errors.email">
+                    Please enter a valid email address.
+                </div>
+            </div>
+            <button class="btn-subscribe mt-3" [disabled]="subscribeForm.invalid">Subcribe</button>
+        </form>
     </section>
-    <section>
-        
-    </section>
+    <app-contact></app-contact>
 </div>
