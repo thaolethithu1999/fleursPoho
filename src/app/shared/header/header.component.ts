@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { faUserAlt, faUserPlus, faPhoneVolume, faShoppingBag, faPhone, faCartArrowDown, faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   showShop: Boolean = false;
   menuHeight = 0;
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
 
@@ -39,14 +39,13 @@ export class HeaderComponent implements OnInit {
     if (type == 'about') {
       this.showAbout = !this.showAbout;
       this.showShop = false;
-      console.log([this.mainMenu.nativeElement]);
-
+      this.cdr.detectChanges();
       this.menuHeight = this.mainMenu.nativeElement.clientHeight;
-      console.log(this.mainMenu.nativeElement.clientHeight);
-      
     } else {
       this.showAbout = false;
       this.showShop = !this.showShop;
+      this.cdr.detectChanges();
+      this.menuHeight = this.mainMenu.nativeElement.clientHeight;
     }
   }
 
