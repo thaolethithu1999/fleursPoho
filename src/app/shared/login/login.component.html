@@ -1,0 +1,18 @@
+<div class="login">
+    <div class="wrapper">
+        <h2 class="text-center title">Login</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username: </label>
+                <input id="username" class="form-control" type="text" formControlName="username" required>
+            </div>
+            <div>
+                <label for="password" class="form-label">Password: </label>
+                <input id="password" class="form-control" type="password" formControlName="password" required>
+            </div>
+            <p class="text p-4 m-0">Forgot your password?</p>
+            <button class="btn-sign-in text-uppercase">Sign in</button>
+            <p class="text p-4">Create account</p>
+        </form>
+    </div>
+</div>
