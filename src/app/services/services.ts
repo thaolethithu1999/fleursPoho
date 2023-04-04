@@ -15,4 +15,8 @@ export class ApiService {
     getFlowerById(id: string) {
         return this.http.get(this.baseUrl + `flower/${id}`);
     }
+
+    getSizeAndPrice(flower_id: string) {
+        return this.http.get(this.baseUrl + `sizeAndPrice/${flower_id}`);
+    }
 }

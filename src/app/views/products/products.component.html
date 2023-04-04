@@ -10,19 +10,31 @@
                         <img src="../../../assets/img/sparegrid.png" alt="spare_grid" title="Grid view" />
                         <img src="../../../assets/img/rowgrid.png" alt="spare_grid" title="List view" />
                     </div>
-                    <div class="filter"><span>Filter</span><fa-icon [icon]="faChevronDown" size="xs" class="icons"></fa-icon></div>
-                    <div class="sort"><span>Sort By</span><fa-icon [icon]="faChevronDown" size="xs" class="icons"></fa-icon></div>
+                    <div class="filter">
+                        <span>Filter</span>
+                        <fa-icon [icon]="faChevronDown" size="xs"class="icons"></fa-icon>
+                    </div>
+                    <div class="sort">
+                        <span>Sort By</span>
+                        <fa-icon [icon]="faChevronDown" size="xs" class="icons"></fa-icon>
+                        <ul class="sort-list">
+                            <li>Alphabetically, A-Z</li>
+                            <li>Alphabetically, Z-A</li>
+                            <li>Price, low to high</li>
+                            <li>Price, high to low</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="list">
-            <div class="row g-4">
-                <div *ngFor="let product of products" class="col-sm-6 col-lg-4 pt-0 product">
+        <div class="list" #listCard>
+            <div *ngIf="products" class="row g-4">
+                <div *ngFor="let product of products" class="col-sm-6 col-lg-4 pt-0 product" #card>
                     <div class="content">
                         <img src={{product.gallery[0]}} alt="vase1" class="content-img" />
                         <div class="short-info">
                             <h2>{{product.name}}</h2>
-                            <p>$100-$455</p>
+                            <p>${{product.sizeprice && product.sizeprice.length > 0 ? product.sizeprice[0].price : 0}}-${{product.sizeprice && product.sizeprice.length > 0 ? product.sizeprice[4].price : 0}}</p>
                         </div>
                     </div>
                 </div>
