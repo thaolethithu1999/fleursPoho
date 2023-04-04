@@ -12,6 +12,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './shared/contact/contact.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ProductsComponent } from './views/products/products.component';
+import { ProductComponent } from './views/product/product.component';
+import { AboutComponent } from './views/about/about.component';
+import { LoadingComponent } from './shared/loading/loading.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +23,11 @@ import { FooterComponent } from './shared/footer/footer.component';
     LoginComponent,
     HomeComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    ProductsComponent,
+    ProductComponent,
+    AboutComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

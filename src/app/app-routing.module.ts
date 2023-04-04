@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoadingComponent } from './shared/loading/loading.component';
 import { LoginComponent } from './shared/login/login.component';
+import { AboutComponent } from './views/about/about.component';
 import { HomeComponent } from './views/home/home.component';
+import { ProductsComponent } from './views/products/products.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'account/login', component: LoginComponent },
+  { path: 'pages/about', component: AboutComponent },
+  { path: 'collections/flowers-plants', component: ProductsComponent}
+  //{ path: 'loading', component: LoadingComponent}
 ];
 
 @NgModule({

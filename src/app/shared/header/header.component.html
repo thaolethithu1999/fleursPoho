@@ -21,13 +21,13 @@
           <li>
             <a href="#">About</a>
             <ul id="sub-menu">
-              <li><a href="#">Our story</a></li>
+              <li><a routerLink="/pages/about">Our story</a></li>
             </ul>
           </li>
           <li>
             <a href="#">Shop</a>
             <ul id="sub-menu">
-              <li><a href="#">Flowers</a></li>
+              <li><a routerLink="/collections/flowers-plants">Flowers</a></li>
               <li><a href="#">Plants</a></li>
               <li><a href="#">Gifts</a></li>
             </ul>
@@ -38,7 +38,7 @@
           <li><a href="#">Blog</a></li>
         </ul>
         <div class="cart-wrapper">
-          <a routerLink="/login"><fa-icon [icon]="faUserAlt" class="header-icon">&nbsp;</fa-icon></a>
+          <a routerLink="/account/login"><fa-icon [icon]="faUserAlt" class="header-icon">&nbsp;</fa-icon></a>
           <a href="#"><fa-icon [icon]="faShoppingBag" class="header-icon"></fa-icon></a>
           <span class="cart-quantity">0</span>
         </div>
@@ -53,7 +53,7 @@
       <div class="col-6 features">
         <div class="list text-right">
           <a href="#"><fa-icon [icon]="faPhone" class="header-icon"></fa-icon></a>
-          <a routerLink="/login"><fa-icon [icon]="faUserAlt" class="header-icon"></fa-icon></a>
+          <a routerLink="account/login"><fa-icon [icon]="faUserAlt" class="header-icon"></fa-icon></a>
           <a class="item cart"><img src="../../../assets/img/cart.png" alt="cart"></a>
           <span class="cart-quantity">0</span>
           <a href="#" class="item" (click)="showMenu()"><img src="../../../assets/img/menulist.png" alt="menu"></a>
@@ -67,14 +67,14 @@
           <fa-icon *ngIf="!showAbout" [icon]="faChevronRight" class="header-icon"></fa-icon>
           <fa-icon *ngIf="showAbout" [icon]="faChevronDown" class="header-icon"></fa-icon>
         </li>
-        <li *ngIf="showAbout" class="sub-menu"><a href="#">Our story</a></li>
+        <li *ngIf="showAbout" class="sub-menu"><a routerLink="/pages/about" (click)="showMenu()">Our story</a></li>
         <li (click)="handleShowSubmenu('shop')">
           <a href="#">Shop</a>
           <fa-icon *ngIf="!showShop" [icon]="faChevronRight" class="header-icon"></fa-icon>
           <fa-icon *ngIf="showShop" [icon]="faChevronDown" class="header-icon"></fa-icon>
         </li>
         <ng-container *ngIf="showShop" class="test">
-          <li class="sub-menu"><a href="#">Flowers</a></li>
+          <li class="sub-menu"><a routerLink="/collections/flowers-plants">Flowers</a></li>
           <li class="sub-menu"><a href="#">Plants</a></li>
           <li class="sub-menu"><a href="#">Gifts</a></li>
         </ng-container>

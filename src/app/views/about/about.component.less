@@ -1,0 +1,53 @@
+.about {
+    .banner {
+        background-image: url('https://cdn.shopify.com/s/files/1/0245/2632/3786/files/Poho_About_Us_Hero_3_1920x.progressive.jpg');
+        height: 180px;
+        display: block;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    section {
+        padding: 5% 5% 0 5%;
+
+        .title {
+            font-weight: 400;
+            letter-spacing: 0em;
+            font-size: 30px;
+            text-transform: uppercase;
+        }
+
+        .content {
+            padding: 0px 30px;
+
+            p {
+                font-size: 15.5px !important;
+                margin: 0 0 15px;
+                color: #7b7b7b;
+            }
+
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 1200px) {
+    .about {
+        section {
+            .content {
+                padding: 0px 80px !important;
+            }
+        }
+    }
+}

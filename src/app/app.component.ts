@@ -1,5 +1,14 @@
 import { Component } from '@angular/core';
 import { ApiService } from './services/services';
+import {
+  Event,
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router
+} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -8,8 +17,9 @@ import { ApiService } from './services/services';
 })
 export class AppComponent {
   title = 'fleurs';
+  loading = false;
 
-  constructor(private apiService: ApiService) {}
+  constructor() {}
 
   ngOnInit() {
     // this.apiService.getFlowers().subscribe((res: any) => {
