@@ -1,0 +1,45 @@
+<div class="wedding">
+    <div class="banner"></div>
+    <section class="text-center text">
+        <h2 class="title mb-5">Wedding</h2>
+        <div class="content">
+            <p>
+                Poho Flowers has an experienced and professional team of florists ready to tailor a floral concept that
+                is unique to you and your vision. We design gorgeous arrangements for weddings in different spaces and
+                locations across Sydney and New South Wales and are happy to travel further afield when required.
+            </p>
+            <p>
+                Our wedding floral arrangements can range from simple bridal bouquets, groom's buttonholes to full
+                wedding floral concepts and execution. Our dedicated team will ensure your most special and magical day
+                is one to be remembered.
+            </p>
+        </div>
+    </section>
+    <section class="enquiry">
+        <div class="content">
+            <h3 class="mb-5">Make an Enquiry</h3>
+            <div *ngIf="errorMessages.length > 0" class="alert alert-error row mx-0">
+                <div class="col-11"><p *ngFor="let msg of errorMessages" class="m-0">{{msg}}</p></div>
+                <div class="col-1"><span class="close" (click)="handleCloseError()">x</span></div>
+            </div>
+            <div *ngIf="confirmSuccess" class="alert alert-success row mx-0">
+                <div class="col-11"><p class="m-0">Thank you! The form was submitted successfully.</p></div>
+                <div class="col-1"><span class="close" (click)="confirmSuccess = false">x</span></div>
+            </div>
+            <form [formGroup]="enquiryForm" (ngSubmit)="handleSubmit()" class="enquiry-form">
+                <div class="row mx-0">
+                    <div class="col-sm-6 p-0">
+                        <input class="w-100 form-control" placeholder="First Name*" type="text" formControlName="firstname" required/>
+                    </div>
+                    <div class="col-sm-6 ln">
+                        <input class="w-100 form-control" placeholder="Last Name*" type="text" formControlName="lastname" required/>
+                    </div>
+                </div>
+                <div><input class="form-control" placeholder="Email*" type="email" formControlName="email" required/></div>
+                <div><input class="form-control" placeholder="Phone*" type="text" formControlName="phone" required/></div>
+                <div><input class="form-control" placeholder="Message*" type="text" formControlName="message" required/></div>
+                <button class="mt-3 btn-submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</div>
