@@ -27,7 +27,8 @@
                 </div>
             </div>
         </div>
-        <div class="filter-dropdown-container mb-5" [class.display-block]="showFilterList">
+        <div class="filter-dropdown-container mb-5" 
+            [ngClass]="{'display-block': showFilterList, 'active': showFilterList}">
             <h4>Categories</h4>
             <ul>
                 <li>Arrangements <span class="number">(11)</span></li>

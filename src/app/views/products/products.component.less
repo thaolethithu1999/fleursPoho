@@ -86,6 +86,11 @@
         box-shadow: 0 0 32px #0000000d;
         width: 100%;
         padding: 5%;
+       
+
+        &.active {
+            transform: translateY(0);
+        }
 
         h4 {
             color: #839bb0;
@@ -115,6 +120,8 @@
 
     .display-block {
         display: block;
+        transform: translateY(-50%);
+        transition: all 3s ease-in-out;
     }
 
     .list {
@@ -122,7 +129,7 @@
         .product {
             opacity: 0;
             transform: translateY(10%);
-            transition: all 1s;
+            transition: all 1s ease-in-out;
 
             &.active {
                 opacity: 1;

@@ -122,6 +122,22 @@
 
         }
 
+        &.description {
+            background-color: rgb(249, 249, 249);
+            margin: 7% 0 0;
+
+            .content {
+                p {
+                    font-weight: bold;
+                    font-size: 18px;
+                    padding: 0 20%;
+                    text-align: center;
+                    color: #262626;
+                    line-height: 1.5;
+                    letter-spacing: 0.05em;
+                }
+            }
+        }
     }
 }
 
@@ -135,11 +151,15 @@
     }
 }
 
-@media (min-width: 1200px) {
-    .about {
+@media (min-width: 1400px) {
+    .wedding {
         section {
-            .content {
-                padding: 0px 80px !important;
+            &.description {
+                .content {
+                    p {
+                        padding: 0 25%;
+                    }
+                }
             }
         }
     }
@@ -148,12 +168,26 @@
 @media (max-width: 576px) {
     .wedding {
         section {
+            &.text {
+                .content {
+                    padding: 0 5%;
+                }
+            }
+
             &.enquiry {
                 .content {
                     .enquiry-form {
                         .ln {
                             padding: 0 !important;
                         }
+                    }
+                }
+            }
+
+            &.description {
+                .content {
+                    p {
+                        padding: 0 10%;
                     }
                 }
             }

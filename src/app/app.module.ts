@@ -13,9 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './shared/contact/contact.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProductsComponent } from './views/products/products.component';
-import { ProductComponent } from './views/product/product.component';
 import { AboutComponent } from './views/about/about.component';
 import { LoadingComponent } from './shared/loading/loading.component';
+import { WeddingComponent } from './views/wedding/wedding.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +25,9 @@ import { LoadingComponent } from './shared/loading/loading.component';
     ContactComponent,
     FooterComponent,
     ProductsComponent,
-    ProductComponent,
     AboutComponent,
-    LoadingComponent
+    LoadingComponent,
+    WeddingComponent
   ],
   imports: [
     BrowserModule,
