@@ -16,6 +16,8 @@ import { ProductsComponent } from './views/products/products.component';
 import { AboutComponent } from './views/about/about.component';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { WeddingComponent } from './views/wedding/wedding.component';
+import { EventsComponent } from './views/events/events.component';
+import { ClientsComponent } from './shared/clients/clients.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { WeddingComponent } from './views/wedding/wedding.component';
     ProductsComponent,
     AboutComponent,
     LoadingComponent,
-    WeddingComponent
+    WeddingComponent,
+    EventsComponent,
+    ClientsComponent
   ],
   imports: [
     BrowserModule,
