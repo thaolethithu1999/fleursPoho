@@ -1,6 +1,19 @@
 <div class="login">
     <div class="wrapper">
         <h2 class="text-center title">Login</h2>
+        <div *ngIf="errorMessages.length > 0" class="alert alert-error row mx-0">
+            <div class="col-11">
+                <p *ngFor="let msg of errorMessages" class="m-0">{{msg}}</p>
+            </div>
+            <div class="col-1"><span class="close" (click)="handleCloseError()">x</span></div>
+        </div>
+        <!-- make a toast -->
+        <!-- <div *ngIf="confirmSuccess" class="alert alert-success row mx-0">
+            <div class="col-11">
+                <p class="m-0">Thank you! The form was submitted successfully.</p>
+            </div>
+            <div class="col-1"><span class="close" (click)="confirmSuccess = false">x</span></div>
+        </div> -->
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
             <div class="mb-3">
                 <label for="username" class="form-label">Username: </label>

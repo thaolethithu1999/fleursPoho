@@ -5,6 +5,7 @@ import { LoginComponent } from './shared/login/login.component';
 import { AboutComponent } from './views/about/about.component';
 import { EventsComponent } from './views/events/events.component';
 import { HomeComponent } from './views/home/home.component';
+import { ProductComponent } from './views/product/product.component';
 import { ProductsComponent } from './views/products/products.component';
 import { WeddingComponent } from './views/wedding/wedding.component';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'collections/flowers-plants', component: ProductsComponent},
   { path: 'pages/wedding', component: WeddingComponent},
   { path: 'pages/events', component: WeddingComponent},
-  { path: 'pages/corporate', component: WeddingComponent}
+  { path: 'pages/corporate', component: WeddingComponent},
+  { path: 'collections/flowers-plants/products/:product_name', component: ProductComponent}
   //{ path: 'loading', component: LoadingComponent}
 ];
 

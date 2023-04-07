@@ -1,8 +1,7 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ApiService } from 'src/app/services/services';
-import { faChevronRight, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faChevronDown, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Flower } from 'src/app/services/model/flower';
-
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -11,16 +10,25 @@ import { Flower } from 'src/app/services/model/flower';
 export class ProductsComponent implements OnInit, AfterViewInit {
   @ViewChildren('card') cards!: QueryList<any>;
 	@ViewChild('listCard') listCard!: ElementRef<any>;
+  @ViewChild('filterDropdown') filterDropdown!: ElementRef<any>;
 
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
+  faEye = faEye;
   products: any;
   showFilterList: Boolean = false;
+  filterDropdownHeight: number = 0;
+  productHover: Boolean = false;
+  circleEyeHover: Boolean = false;
+  positionHover: number = 0;
+  blackEye = '../../../assets/img/eye.png';
+  whiteEye = '../../../assets/img/whiteeye.png'
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,
+              private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.getFlowers();
+    this.getProducts();
   }
 
   ngAfterViewInit() {
@@ -31,7 +39,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
           if (entry.isIntersecting) {
             target.classList.add('active');
           }
-         
         });
       }); 
       this.cards.forEach(card => {
@@ -40,10 +47,10 @@ export class ProductsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  getFlowers() {
-    this.apiService.getFlowers().subscribe((res: any) => {
+  getProducts() {
+    this.apiService.getProducts().subscribe((res: any) => {
       if(!res.err) {
-        this.products = res.flowers;
+        this.products = res.products;
         this.getSizeAndPrice();
       }
     })
@@ -83,4 +90,23 @@ export class ProductsComponent implements OnInit, AfterViewInit {
       this.cards.forEach(card => observer.observe(card.nativeElement));
 		}
 	}
+
+  showDetail(product: any) {
+    console.log(product);
+    
+  }
+
+  mouseEnterImage(idx: number) {
+    console.log(idx);
+    this.productHover = true;
+    this.positionHover = idx;
+
+  }
+
+  mouseLeaveImage(idx: number) {
+    console.log(idx);
+    this.productHover = false;
+    this.positionHover = 0;
+  }
+
 }

@@ -2,7 +2,7 @@
     <div class="products-page-container">
         <div class="row mx-0 search-container">
             <div class="col-sm-6 result">
-                <p>Showing 1–50 of 32 results</p>
+                <p>Showing <span class="number color-black">1–50</span> of <span class="number color-black">{{products && products.length}}</span> results</p>
             </div>
             <div class="col-sm-6">
                 <div class="toolbar-right">
@@ -12,7 +12,7 @@
                     </div>
                     <div class="filter" (click)="handleShowFilterList()">
                         <span>Filter</span>
-                        <fa-icon [icon]="faChevronDown" size="xs"class="icons"></fa-icon>
+                        <fa-icon [icon]="faChevronDown" size="xs" class="icons"></fa-icon>
                     </div>
                     <div class="sort">
                         <span>Sort By</span>
@@ -27,8 +27,8 @@
                 </div>
             </div>
         </div>
-        <div class="filter-dropdown-container mb-5" 
-            [ngClass]="{'display-block': showFilterList, 'active': showFilterList}">
+        <div class="filter-dropdown-container clearfix mb-4"
+            [ngClass]="{'display-block': showFilterList, 'active': showFilterList}" #filterDropdown>
             <h4>Categories</h4>
             <ul>
                 <li>Arrangements <span class="number">(11)</span></li>
@@ -41,15 +41,33 @@
         </div>
         <div class="list" #listCard>
             <div *ngIf="products" class="row g-4">
-                <div *ngFor="let product of products" class="col-sm-6 col-lg-4 pt-0 product" #card>
+                <div *ngFor="let product of products; index as i" class="col-sm-6 col-lg-4 pt-0 product" #card>
                     <div class="content">
-                        <img src={{product.gallery[0]}} alt="vase1" class="content-img" />
+                        <img [src]="productHover && i == positionHover ? product.gallery[product.gallery.length - 1] : product.gallery[0]" alt={{product.name}} class="content-img" 
+                            (click)="showDetail(product)"
+                            (mouseenter)="mouseEnterImage(i)"
+                            (mouseleave)="mouseLeaveImage(i)"/>
                         <div class="short-info">
-                            <h2>{{product.name}}</h2>
-                            <p>
-                                $<span class="number">{{product.sizeprice && product.sizeprice.length > 0 ? product.sizeprice[0].price : 0}}</span>-
-                                $<span class="number">{{product.sizeprice && product.sizeprice.length > 0 ? product.sizeprice[4].price : 0}}</span>
+                            <h2 (click)="showDetail(product)">{{product.name}}</h2>
+                            <p *ngIf="product.sizeprice && product.sizeprice.length > 1">
+                                $<span class="number">
+                                    {{product.sizeprice && product.sizeprice.length > 0 ? product.sizeprice[0].price : 0}}
+                                </span>-
+                                $<span class="number">
+                                    {{product.sizeprice && product.sizeprice.length > 0 ? product.sizeprice[product.sizeprice.length - 1].price : 0}}
+                                </span>
                             </p>
+                            <p *ngIf="product.sizeprice && product.sizeprice.length <= 1">
+                                $<span class="number">
+                                    {{product.sizeprice && product.sizeprice.length > 0 ? product.sizeprice[0].price : 0}}
+                                </span>
+                            </p>
+                        </div>
+                        <div class="circle-eye"
+                            (mouseenter)="circleEyeHover = true"
+                            (mouseleave)="circleEyeHover = false">
+                            <!-- <img [src]="circleEyeHover && i == positionHover ? whiteEye : blackEye" class="icon"/> -->
+                            <fa-icon [icon]="faEye" class="icon"></fa-icon>
                         </div>
                     </div>
                 </div>

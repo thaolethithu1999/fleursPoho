@@ -9,12 +9,12 @@ export class ApiService {
     baseUrl:string = 'http://localhost:8000/';
     constructor(private http:HttpClient) {}
 
-    getFlowers() {
-        return this.http.get(this.baseUrl + 'flowers');
+    getProducts() {
+        return this.http.get(this.baseUrl + 'products');
     }
 
-    getFlowerById(id: string) {
-        return this.http.get(this.baseUrl + `flower/${id}`);
+    getProductById(id: string) {
+        return this.http.get(this.baseUrl + `product/${id}`);
     }
 
     getSizeAndPrice(flower_id: string) {
@@ -23,5 +23,9 @@ export class ApiService {
 
     addEnquiry(enquiry: Enquiry) {
         return this.http.post(this.baseUrl + 'enquiry/add', enquiry);
+    }
+
+    login(loginInfo: any) {
+        return this.http.post(this.baseUrl + 'login', loginInfo);
     }
 }
