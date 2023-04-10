@@ -25,7 +25,12 @@ export class ApiService {
         return this.http.post(this.baseUrl + 'enquiry/add', enquiry);
     }
 
+    // user
     login(loginInfo: any) {
         return this.http.post(this.baseUrl + 'login', loginInfo);
+    }
+
+    getUserById(id: string) {
+        return this.http.get(this.baseUrl + `user/${id}`);
     }
 }

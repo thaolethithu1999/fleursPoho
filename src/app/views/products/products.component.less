@@ -156,10 +156,15 @@
                 cursor: pointer;
                 overflow: hidden;
 
+                &:hover {
+                    .circle-eye {
+                        transform: translateX(0);
+                    }
+                }
+
                 img {
                     width: 100%;
                     height: 100%;
-                    height: 330px;
                 }
 
                 .short-info {
@@ -211,10 +216,10 @@
                     border-radius: 49%;
                     width: 40px;
                     height: 40px;
-                    right: 10%;
+                    right: 7%;
                     padding: 9px 11px;
-                    transform: translateX(70px);
-
+                    transform: translateX(100px);
+                    transition: all 0.5s ease-in;
                     &:hover {
                         background-color: #bea06a;
                         
@@ -241,51 +246,32 @@
     .products {
         .products-page-container {
             padding: 0px 220px !important;
-
-            .list {
-                .product {
-                    .content {
-                        img {
-                            height: 355px !important;
-                        }
-                    }
-                }
-            }
-        }
-
-
-    }
-
-}
-
-@media (min-width: 1400px) and (max-width: 1500px) {
-    .products {
-        .products-page-container {
-            padding: 0px 170px !important;
         }
     }
 }
 
-@media (min-width: 1300px) and (max-width: 1400px) {
-    .products {
-        .products-page-container {
-            padding: 0px 150px !important;
-        }
-    }
-}
+// @media (max-width: 768px) {
+//     .products {
+//         // .products-page-container {
+//         //     padding: 0px 90px !important;
+//         // }
 
-@media (min-width: 1200px) and (max-width: 1300px) {
-    .products {
-        .products-page-container {
-            padding: 0px 80px !important;
-        }
-    }
-}
+//         .list {
+//             .product {
+//                 .content {
+//                     img {
+//                         height: 350px !important;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 @media (max-width: 576px) {
     .products {
         .products-page-container {
-            padding: 0px 30px !important;
+            padding: 0px 50px !important;
 
             .search-container {
                 .result {
