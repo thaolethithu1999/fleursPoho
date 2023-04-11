@@ -97,14 +97,14 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   }
 
   mouseEnterImage(idx: number) {
-    console.log(idx);
+    // console.log(idx);
     this.productHover = true;
     this.positionHover = idx;
 
   }
 
   mouseLeaveImage(idx: number) {
-    console.log(idx);
+    // console.log(idx);
     this.productHover = false;
     this.positionHover = 0;
   }

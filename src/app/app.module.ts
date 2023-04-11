@@ -19,6 +19,7 @@ import { WeddingComponent } from './views/wedding/wedding.component';
 import { EventsComponent } from './views/events/events.component';
 import { ClientsComponent } from './shared/clients/clients.component';
 import { ProductComponent } from './views/product/product.component';
+import { CartComponent } from './views/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { ProductComponent } from './views/product/product.component';
     WeddingComponent,
     EventsComponent,
     ClientsComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,39 @@
+<div class="cart" [class.show]="isOpen">
+    <div class="cart-content">
+        <div class="row mx-0 mb-4 heading">
+            <div class="col-8"><h3>Shopping Cart</h3></div>
+            <div class="col-4"><button class="btn-close-cart" (click)="handleCloseCart()">X</button></div>
+        </div>
+        <div class="list">
+            <div class="item row mx-0">
+                <div class="col-3 left">
+                    <a href="#">
+                        <img src="https://cdn.shopify.com/s/files/1/0245/2632/3786/products/Native_Local_Vase_WebCrop_120x.jpg"
+                        alt="" />
+                    </a>
+                </div>
+                <div class="col-9 right">
+                    <div class="row mx-0 heading">
+                        <div class="col-9"><a class="item-name"><h5>Native & Local</h5></a></div>
+                        <div class="col-3"><button class="btn-remove">x</button></div>
+                    </div>
+                    <p class="sub-info">Small</p>
+                    <p class="sub-info">Wrapped</p>
+                    <p class="quantity-price">1 x $110</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mx-0 total">
+            <div class="col-6">
+                <p class="title">Subtotal</p>
+            </div>
+            <div class="col-6">
+                <div class="total-number"><p>$220</p></div>
+            </div>
+        </div>
+        <div class="row mx-0 actions">
+            <button class="btn-view-cart mb-3">View cart</button>
+            <button class="btn-check-out">Check out</button>
+        </div>
+    </div>
+</div>

@@ -1,34 +1,21 @@
-import { Component } from '@angular/core';
-import { ApiService } from './services/services';
-import {
-  Event,
-  NavigationCancel,
-  NavigationEnd,
-  NavigationError,
-  NavigationStart,
-  Router
-} from '@angular/router';
-
-
+import { Component, ElementRef, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'fleurs';
-  loading = false;
+  openCart: Boolean = false;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    // this.apiService.getFlowers().subscribe((res: any) => {
-    //   console.log(res);
-    // });
-
-    // this.apiService.getFlowerById('005').subscribe((res:any) => {
-    //   console.log(res);
-      
-    // })
   }
+
+  handleOpenCart(openCart: any) {
+    // console.log(openCart);
+    this.openCart = openCart;
+  }
+
+
 }

@@ -51,8 +51,8 @@
         </ul>
         <div class="cart-wrapper">
           <a *ngIf="!isUserLogin" routerLink="/account/login"><fa-icon [icon]="faUserAlt" class="header-icon">&nbsp;</fa-icon></a>
-          <a href="#"><fa-icon [icon]="faUserAlt" class="header-icon">&nbsp;</fa-icon></a>
-          <a href="#"><fa-icon [icon]="faShoppingBag" class="header-icon">&nbsp;</fa-icon></a>
+          <a *ngIf="isUserLogin" href="#"><fa-icon [icon]="faUserAlt" class="header-icon" title="Your profile">&nbsp;</fa-icon></a>
+          <fa-icon [icon]="faShoppingBag" class="header-icon" (click)="handleOpenCart()">&nbsp;</fa-icon>
           <span class="cart-quantity" [class.right-cart-quantity]="isUserLogin">0</span>
           <a *ngIf="isUserLogin" href="#" (click)="logout()"><fa-icon [icon]="faSignOutAlt" class="header-icon"></fa-icon></a>
         </div>

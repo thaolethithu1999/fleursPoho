@@ -1,0 +1,185 @@
+.cart {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    // transition: background-color 0.1s ease, transform 0.5s ease;
+    transition: all 0.5s ease-out;
+
+    .cart-content {
+        width: 40%;
+        height: 100vh;
+        padding: 5%;
+        background-color: #fff;
+        float: right;
+        // position: sticky;
+        transform: translateX(100%);
+        transition: all 0.5s ease-out;
+
+        .heading {
+            color: #262626;
+
+            div {
+                padding: 0;
+
+                h3 {
+                    padding-top: 12px;
+                    font-weight: 500;
+                    font-size: 22px;
+                    letter-spacing: 0.03em;
+                }
+
+                .btn-close-cart {
+                    float: right;
+                    border: none;
+                    background-color: #fff;
+                    font-size: 30px;
+                    font-weight: bold;
+
+                    &:hover {
+                        color: #bea06a;
+                    }
+                }
+            }
+        }
+
+        .list {
+            .item {
+                .left {
+                    padding: 0;
+
+                    img {
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+
+                .right {
+                    padding: 0;
+
+                    .heading {
+                        position: relative;
+
+                        div {
+                            padding: 0;
+
+                            .item-name {
+                                text-decoration: none;
+
+                                h5 {
+                                    font-size: 16px;
+                                    color: #262626;
+                                    transition: color 0.5s ease-in-out;
+                                    cursor: pointer;
+                                    margin-bottom: 5px;
+
+                                    &:hover {
+                                        color: #bea06a;
+                                    }
+                                }
+
+                            }
+
+                            .btn-remove {
+                                float: right;
+                                border: none;
+                                background-color: #fff;
+                                font-size: 20px;
+                                position: absolute;
+                                top: -10px;
+                                right: 0;
+
+                                &:hover {
+                                    color: #bea06a;
+                                }
+                            }
+                        }
+                    }
+
+                    p {
+                        margin: 0;
+
+                        &.sub-info {
+                            color: #7B7B7B;
+                            font-size: 12px;
+                            margin: 0;
+                        }
+    
+                        &.quantity-price {
+                            color: #232324;
+                            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+                        }
+                    }
+                }
+            }
+        }
+
+        .total {
+            padding: 40px 0px;
+
+            div {
+                padding: 0;
+
+                p {
+                    margin: 0;
+
+                    &.title {
+                        letter-spacing: 0.05em;
+                    }
+                }
+
+                div {
+                    &.total-number {
+                        float: right;
+                        p {
+                            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                            color: #949494;
+
+                            &::after {
+                                content: " inc. GST";
+                                font-size: 14px;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .actions {
+
+            button {
+                background-color: #232324;
+                color: #fff;
+                padding: 20px;
+                border: none;
+                font-size: 15px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+                cursor: pointer;
+                transition: background-color .3s ease;
+
+                &:hover {
+                    background-color: #bea06a;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+
+    .cart-content {
+        transform: translateX(0);
+    }
+}
+
+

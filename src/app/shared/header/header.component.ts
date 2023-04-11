@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, TemplateRef, ViewChild, Output, EventEmitter} from '@angular/core';
 import { faUserAlt, faUserPlus, faPhoneVolume, faShoppingBag, faPhone, faCartArrowDown, faChevronRight, faChevronDown, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/app/services/model/user';
 import { ApiService } from 'src/app/services/services';
@@ -11,6 +11,8 @@ import { ApiService } from 'src/app/services/services';
 export class HeaderComponent implements OnInit {
   @ViewChild('listMenu') listMenu!: ElementRef<any>;
   @ViewChild('mainMenu') mainMenu!: ElementRef<any>;
+
+  @Output() openCart = new EventEmitter<Boolean>();
 
   faUserAlt = faUserAlt;
   faUserPlus = faUserPlus;
@@ -74,5 +76,9 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.isUserLogin = false;
     sessionStorage.removeItem('user_id');
+  }
+
+  handleOpenCart() {
+    this.openCart.emit(true);
   }
 }

@@ -1,5 +1,9 @@
 <div>
-  <app-header></app-header>
+  <app-header (openCart)="handleOpenCart($event)"></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
+  <!-- <ng-template [ngIf]="openCart">
+    <app-cart [isOpen]="openCart"></app-cart>
+  </ng-template> -->
+  <app-cart [isOpen]="openCart" (openCart)="handleOpenCart($event)"></app-cart>
 </div>

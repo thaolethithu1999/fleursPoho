@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   }
 
   handleChannge() {
-    console.log(this.subscribeForm.email);
     if(!this.subscribeForm.email) {
       this.hideError = true;
     }
