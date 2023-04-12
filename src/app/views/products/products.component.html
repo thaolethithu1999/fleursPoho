@@ -56,6 +56,9 @@
                                     (mouseleave)="circleEyeHover = false">
                                     <img [src]="circleEyeHover ? whiteEye : blackEye" class="icon"/>
                                 </div>
+                                <div *ngIf="product.quantity === 0" class="soldout-banner">
+                                    Sold out
+                                </div>
                             </div>
                             <div class="short-info">
                                 <h2 (click)="showDetail(product)">{{product.name}}</h2>
@@ -94,7 +97,7 @@
                             </div>
                         </div>
                         <div class="long-info">
-                            <h2>{{product.name}}</h2>
+                            <h2 (click)="showDetail(product)">{{product.name}}</h2>
                             <p *ngIf="product.sizeprice && product.sizeprice.length > 1">
                                 <span class="number">
                                     ${{product.sizeprice && product.sizeprice.length > 0 ? product.sizeprice[0].price : 0}}-

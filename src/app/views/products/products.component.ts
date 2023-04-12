@@ -1,7 +1,8 @@
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, QueryList, SimpleChange, ViewChild, ViewChildren } from '@angular/core';
 import { ApiService } from 'src/app/services/services';
 import { faChevronRight, faChevronDown, faEye } from '@fortawesome/free-solid-svg-icons';
-import { Flower } from 'src/app/services/model/flower';
+import { Product } from 'src/app/services/model/product';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -11,7 +12,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   @ViewChildren('card') cards!: QueryList<any>;
 	@ViewChild('listCard') listCard!: ElementRef<any>;
   @ViewChild('filterDropdown') filterDropdown!: ElementRef<any>;
-  // @ViewChild('productspage') productspage!: ElementRef<any>;
 
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
@@ -24,11 +24,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   positionHover: number = 0;
   blackEye = '../../../assets/img/eye.png';
   whiteEye = '../../../assets/img/whiteeye.png';
-  gridview: Boolean = false;
+  gridview: Boolean = true;
   mobileScreen: Boolean = true;
 
   constructor(private apiService: ApiService,
-              private cdr: ChangeDetectorRef) { }
+              private cdr: ChangeDetectorRef,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -62,7 +63,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 
   getSizeAndPrice() {
     if(this.products) {
-      this.products.forEach((product: Flower) => {
+      this.products.forEach((product: Product) => {
         this.apiService.getSizeAndPrice(product.id).subscribe((res: any) => {
           if(!res.err) {
             product.sizeprice = res.sizeprice;
@@ -100,9 +101,10 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 		}
 	}
 
-  showDetail(product: any) {
+  showDetail(product: Product) {
     console.log(product);
-    
+    sessionStorage.setItem('product_id', product.id);
+    this.router.navigate([`/collections/flowers-plants/products/${(product.name).toLowerCase()}`]);
   }
 
   mouseEnterImage(idx: number) {

@@ -59,6 +59,7 @@
       </div>
     </div>
   </div>
+  <!-- TABLET MOBILE HEADER -->
   <div class="second-header">
     <div class="row mx-0 head">
       <div class="col-4 header-logo ">
@@ -66,7 +67,6 @@
       </div>
       <div class="col-8 features">
         <div class="list text-right">
-          
           <a *ngIf="!isUserLogin" routerLink="account/login"><fa-icon [icon]="faUserAlt" class="header-icon"></fa-icon></a>
           <a *ngIf="isUserLogin" href="#" class="user-icon">
             Hi, {{user ? user.firstname : ''}}
@@ -79,20 +79,20 @@
           <a href="#"><fa-icon [icon]="faPhone" class="header-icon"></fa-icon></a>
           <a class="item cart" (click)="handleOpenCart()"><img src="../../../assets/img/cart.png" alt="cart"></a>
           <span class="cart-quantity" [class.right-sh-cart-quantity]="isUserLogin">0</span>
-          <a href="#" class="item" (click)="showMenu()"><img src="../../../assets/img/menulist.png" alt="menu"></a>
+          <img src="../../../assets/img/menulist.png" alt="menu" class="cart-icon" (click)="showMenu()">
         </div>
       </div>
     </div>
     <div class="list-menu" #listMenu [style.height.px]="menuHeight">
       <ul class="main-menu" #mainMenu>
         <li (click)="handleShowSubmenu('about')">
-          <a href="#">About</a>
+          <span>About</span>
           <fa-icon *ngIf="!showAbout" [icon]="faChevronRight" class="header-icon"></fa-icon>
           <fa-icon *ngIf="showAbout" [icon]="faChevronDown" class="header-icon"></fa-icon>
         </li>
         <li *ngIf="showAbout" class="sub-menu"><a routerLink="/pages/about" (click)="showMenu()">Our story</a></li>
         <li (click)="handleShowSubmenu('shop')">
-          <a href="#">Shop</a>
+          <span>Shop</span>
           <fa-icon *ngIf="!showShop" [icon]="faChevronRight" class="header-icon"></fa-icon>
           <fa-icon *ngIf="showShop" [icon]="faChevronDown" class="header-icon"></fa-icon>
         </li>

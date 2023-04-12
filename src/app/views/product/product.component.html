@@ -1,0 +1,29 @@
+<div *ngIf="product" class="product">
+    <div class="row mx-0">
+        <div class="col-sm-6 image-side">
+            <div class="image-wrapper mb-3" *ngFor="let img of product?.gallery">
+                <img src={{img}}/>
+            </div>
+        </div>
+        <div class="col-sm-6 info-side">
+            <div class="content">
+                <div class="heading">
+                    <h1 class="mb-4">{{product.name}}</h1>
+                    <div class="row mx-0">
+                        <p class="number p-0">${{price | number : '1.2-2'}}</p>
+                    </div>
+                </div>
+                <div class="rest-part">
+                    <p class="description">
+                        {{product.description}}
+                    </p>
+                    <div class="size-wrapper">
+                        <h5>SIZE</h5>
+                        <button class="btn-size" *ngFor="let size of product.sizeprice" (click)="handleChooseSize(size)">{{size.size}}</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
