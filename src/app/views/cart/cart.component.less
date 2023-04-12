@@ -10,7 +10,7 @@
     transition: all 0.5s ease-out;
 
     .cart-content {
-        width: 40%;
+        width: 450px;
         height: 100vh;
         padding: 5%;
         background-color: #fff;
@@ -47,6 +47,13 @@
         }
 
         .list {
+            overflow-y: scroll;
+            max-height: calc(100vh - 430px);
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
             .item {
                 .left {
                     padding: 0;
@@ -58,7 +65,7 @@
                 }
 
                 .right {
-                    padding: 0;
+                    padding: 0 0 0 7px;
 
                     .heading {
                         position: relative;
@@ -182,4 +189,11 @@
     }
 }
 
+@media (max-width: 576px) {
+    .cart {
+        .cart-content {
+            width: 100% !important;
+        }
+    }
+}
 

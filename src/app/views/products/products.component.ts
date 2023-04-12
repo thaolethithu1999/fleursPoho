@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, OnInit, QueryList, SimpleChange, ViewChild, ViewChildren } from '@angular/core';
 import { ApiService } from 'src/app/services/services';
 import { faChevronRight, faChevronDown, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Flower } from 'src/app/services/model/flower';
@@ -11,6 +11,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   @ViewChildren('card') cards!: QueryList<any>;
 	@ViewChild('listCard') listCard!: ElementRef<any>;
   @ViewChild('filterDropdown') filterDropdown!: ElementRef<any>;
+  // @ViewChild('productspage') productspage!: ElementRef<any>;
 
   faChevronRight = faChevronRight;
   faChevronDown = faChevronDown;
@@ -22,13 +23,16 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   circleEyeHover: Boolean = false;
   positionHover: number = 0;
   blackEye = '../../../assets/img/eye.png';
-  whiteEye = '../../../assets/img/whiteeye.png'
+  whiteEye = '../../../assets/img/whiteeye.png';
+  gridview: Boolean = false;
+  mobileScreen: Boolean = true;
 
   constructor(private apiService: ApiService,
               private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.getProducts();
+    window.innerWidth <= 576 ? this.mobileScreen = true : this.mobileScreen = false;
   }
 
   ngAfterViewInit() {
@@ -71,6 +75,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   handleShowFilterList() {
     this.showFilterList = !this.showFilterList;
   }
+  
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    let currentWidth = event.target.innerWidth;
+    currentWidth <= 576 ? this.mobileScreen = true : this.mobileScreen = false;
+  }
 
   @HostListener('window:scroll', ['$event'])
 	onWindowScroll() {
@@ -81,7 +91,6 @@ export class ProductsComponent implements OnInit, AfterViewInit {
 			const observer = new IntersectionObserver((entries: any) => {
         entries.forEach((entry: any) => { 
           const { target } = entry;
-          // console.log(entry);
           if (entry.isIntersecting) {
             target.classList.add('active');
           }
@@ -97,14 +106,12 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   }
 
   mouseEnterImage(idx: number) {
-    // console.log(idx);
     this.productHover = true;
     this.positionHover = idx;
 
   }
 
   mouseLeaveImage(idx: number) {
-    // console.log(idx);
     this.productHover = false;
     this.positionHover = 0;
   }

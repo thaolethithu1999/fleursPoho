@@ -66,7 +66,7 @@
       </div>
       <div class="col-8 features">
         <div class="list text-right">
-          <a href="#"><fa-icon [icon]="faPhone" class="header-icon"></fa-icon></a>
+          
           <a *ngIf="!isUserLogin" routerLink="account/login"><fa-icon [icon]="faUserAlt" class="header-icon"></fa-icon></a>
           <a *ngIf="isUserLogin" href="#" class="user-icon">
             Hi, {{user ? user.firstname : ''}}
@@ -76,7 +76,8 @@
               <li (click)="logout()">Logout</li>
             </ul>
           </a>
-          <a class="item cart"><img src="../../../assets/img/cart.png" alt="cart"></a>
+          <a href="#"><fa-icon [icon]="faPhone" class="header-icon"></fa-icon></a>
+          <a class="item cart" (click)="handleOpenCart()"><img src="../../../assets/img/cart.png" alt="cart"></a>
           <span class="cart-quantity" [class.right-sh-cart-quantity]="isUserLogin">0</span>
           <a href="#" class="item" (click)="showMenu()"><img src="../../../assets/img/menulist.png" alt="menu"></a>
         </div>
